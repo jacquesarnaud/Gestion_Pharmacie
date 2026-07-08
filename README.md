@@ -1,2 +1,1 @@
-²
 #Gestion de pharmacie
