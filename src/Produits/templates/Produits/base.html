@@ -1,14 +1,26 @@
+#base templates
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="">
+  <meta charset="UTF-8">
+  <title>CodePen - Products Dashboard UI</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="asset/bootstrap.min.css">
+<link rel="stylesheet" href="asset/style.css">
+
 </head>
-<body>
-    <h1>
-        Bonjour et bienvenue sur notre app 
-    </h1>
+<body> 
+    <div class="app-container>
+        
+    {% include "zone_gauche.html" %}
+
+        <div class="app-content">
+            {% include "hearder.html" %}
+        </div>
+        {% include "hearder2.html" %}
+    </div>
+
+    <script  src="./script.js"></script>
 </body>
 </html>
