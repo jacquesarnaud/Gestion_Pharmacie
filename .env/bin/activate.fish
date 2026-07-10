@@ -33,7 +33,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV /home/imac-z02/Gestion_pharma/.env
+set -gx VIRTUAL_ENV /home/jaarnaud/Gestion_Pharmacie/.env
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/"bin $PATH

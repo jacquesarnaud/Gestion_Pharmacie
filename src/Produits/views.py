@@ -4,5 +4,8 @@ from .models import *
 # Create your views here.
 
 def home (request):
-    
-    return render(request,'Produits/home.html')
+    donnes = Produits.objects.all
+    context = {
+        "donnes":donnes
+    }
+    return render(request,'Produits/home.html',context)

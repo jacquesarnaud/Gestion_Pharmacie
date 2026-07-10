@@ -1,4 +1,4 @@
-#base templates
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en" >
@@ -6,21 +6,22 @@
   <meta charset="UTF-8">
   <title>CodePen - Products Dashboard UI</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-  <link rel="stylesheet" href="asset/bootstrap.min.css">
-<link rel="stylesheet" href="asset/style.css">
-
+  <link rel="stylesheet" href="{% static 'Produits/css/styles.css' %}">
 </head>
 <body> 
-    <div class="app-container>
-        
-    {% include "zone_gauche.html" %}
+   <div class="app-container">
 
-        <div class="app-content">
-            {% include "hearder.html" %}
-        </div>
-        {% include "hearder2.html" %}
+    {% include "Produits/zone_gauche.html" %}
+    <div class="app-content">
+        {% include "Produits/hearder2.html" %}
+        
+        {% block produits %}
+
+        {% endblock produits %}
     </div>
 
-    <script  src="./script.js"></script>
+
+</div>
+    <script  src="static'Products/js/script.js'></script>
 </body>
 </html>
