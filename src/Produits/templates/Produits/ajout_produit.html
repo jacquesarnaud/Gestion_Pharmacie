@@ -1,0 +1,132 @@
+{% load static %}
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Ajouter un produit</title>
+
+<link rel="stylesheet" href="{% static 'Produits/css/style_ajout.css' %}">
+</head>
+
+  <body>
+    <div class="form-container">
+      <h1>Ajouter un médicament</h1>
+
+      <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li {% if message.tags %}class="{{ message.tags }}"{% endif %}>
+                        {{ message }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <div class="form-group">
+          <label for="name">Nom du produit</label>
+
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Ex: Doliprane"
+            required
+          />
+          {% if errors.name %}
+            <div class="errors" style="color: red;">
+                <p>{{ errors.name }}</p>
+            </div>   
+          {% endif %}
+        </div>
+
+        <div class="form-group">
+          <label for="category">Catégorie</label>
+
+          <select name="category" id="category">
+            <option value="">-- Choisir une catégorie --</option>
+            {% for category in Category %}
+            <option value="{{ category.pk }}">{{ category.name }}</option>
+            {% endfor %}
+          </select>
+          {% if errors.category %}
+            <div class="errors" style="color: red;">
+                <p>{{ errors.category }}</p>
+            </div>   
+          {% endif %}
+        </div>
+
+        <div class="form-group">
+          <label for="price">Prix (FCFA)</label>
+
+          <input type="number" id="price" name="price" placeholder="Ex: 500" required />
+            {% if errors.price %}
+            <div class="errors" style="color: red;">
+                <p>{{ errors.price }}</p>
+            </div>   
+          {% endif %}
+        </div>
+
+        <div class="form-group">
+          <label for="quantite">Quantité</label>
+
+          <input
+            type="number"
+            id="quantite"
+            name="quantite"
+            placeholder="Ex: 100"
+            required
+          />
+          {% if errors.quantite %}
+            <div class="errors" style="color: red;">
+                <p>{{ errors.quantite }}</p>
+            </div>   
+          {% endif %}
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description</label>
+
+          <textarea
+            id="description"
+            name="description"
+            placeholder="Description du médicament"
+          >
+          </textarea>
+          {% if errors.description %}
+            <div class="errors" style="color: red;">
+                <p>{{ errors.description }}</p>
+            </div>   
+          {% endif %}
+        </div>
+
+        <div class="form-group">
+          <label for="date_expire"> Date d'expiration </label>
+
+          <input type="date" id="date_expire" name="date_expire" />
+          {% if errors.date_expire %}
+            <div class="errors" style="color: red;">
+                <p>{{ errors.date_expire }}</p>
+            </div>   
+          {% endif %}
+        </div>
+
+        <div class="form-group">
+          <label for="image"> Image du produit </label>
+
+          <input type="file" id="image" name="image" />
+          {% if errors.image %}
+            <div class="errors" style="color: red;">
+                <p>{{ errors.image }}</p>
+            </div>   
+          {% endif %}
+        </div>
+
+        <button type="submit">Ajouter le produit</button>
+      </form>
+    </div>
+  </body>
+</html>

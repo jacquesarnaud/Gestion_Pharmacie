@@ -16,7 +16,7 @@ class Produits(models.Model):
     description = models.TextField()
     date_ajout = models.DateTimeField(auto_now_add=True)
     date_expire = models.DateField()
-    image = models.ImageField(null=True,blank=True,upload_to='media/')
+    image = models.ImageField(null=True,blank=True,upload_to='produits/')
     
 
     class Meta:
