@@ -20,9 +20,8 @@ from django.urls import reverse_lazy
 
 class Affichage(ListView):
     template_name = 'Produits/home.html'
+    queryset = Produits.objects.all()    
 
-    queryset = Produits.objects.all()
-    
 
 class AjoutProduits(CreateView):
 
@@ -30,6 +29,10 @@ class AjoutProduits(CreateView):
     form_class = AjoutProduit
     template_name = 'Produits/ajout.html'
     success_url = reverse_lazy('vue-home')
+
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)
 
 # def Ajout_produit(request):
 #     errors = {}
